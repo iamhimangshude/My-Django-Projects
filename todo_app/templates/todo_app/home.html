@@ -1,31 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 Todo App
 {% endblock title %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'todo_app/home.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+{% endblock css_files %}
+
 {% block content %}
     <header>
-        <h1>Your Tasks
-        </h1>
-        <nav>
-            <a href="{% url 'home' %}">All</a>
-            {% for cat in categories %}
-            <div class="scrollmenu">
-                <a href="{% url "home"  cat.cat_name %}">{{ cat.cat_name }}</a>
-            </div>
-            {% endfor %}
-        </nav>
-        <button id="add-category" class="category-btn"><a href="{% url "create-category" %}">New Category</a></button>
+            <h1>Your Tasks {% if slug %} in {{ slug }}{% endif %}</h1>
     </header>
-
+    <section id="categories">
+        <div class="scrollmenu">
+            <a href="{% url 'home' %}" {% if slug == None %}class="background-yellow"{% endif %}>All</a>
+            {% for cat in categories %}
+                <a href="{% url "home"  cat.cat_name %}" class="{% if slug == cat.cat_name %}background-yellow{% endif %}">{{ cat.cat_name }}</a>
+            {% endfor %}
+        </div>
+    </section>
+    
     <main>
-        <button id="rounded-add-btn"><a href="{% url "create-task" %}">+</a></button>
+        <div id="add-category" class="rounded-btn"><a href="{% url "create-category" %}"><span class="material-symbols-outlined">category</span></a></div>
+        <div id="add-task" class="rounded-btn"><a href="{% url "create-task" %}">+</a></div>
 
         <div id="task-list">
         {% for task in tasks %}
             <div class="task-items">
-                {{ task.title }}
+                <p>{{ task.title }} <span>{{ task.detail_text }}</span></p>
             </div>
         {% endfor %}
         </div>

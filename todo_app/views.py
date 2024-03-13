@@ -13,6 +13,7 @@ def home(request, slug=None):
     context = {}
     context["categories"] = category_data
     context["tasks"] = []
+    context["slug"] = None
     for items in category_data:
         # print(Category.objects.get(cat_name=items).category.all())
         context["tasks"].extend(Category.objects.get(cat_name=items).category.all())
@@ -20,6 +21,7 @@ def home(request, slug=None):
     if slug != None:
         task_list = Category.objects.get(cat_name=slug).category.all()
         context["tasks"] = task_list
+        context["slug"] = slug
     return render(request, "todo_app/home.html", context)
 
 
