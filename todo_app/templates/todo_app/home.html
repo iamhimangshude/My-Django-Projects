@@ -5,7 +5,29 @@ Todo App
 {% endblock title %}
 
 {% block content %}
+    <header>
+        <h1>{% if cat_name != None %}{{ cat_name|capfirst }} Tasks{% else %}Your Tasks{% endif %}
+        </h1>
+        <nav>
+            <a href="{% url 'home' %}">All</a>
+            {% for cat in categories %}
+            <div class="scrollmenu">
+                <a href="{% url "home"  cat.cat_name|lower %}">{{ cat.cat_name }}</a>
+            </div>
+            {% endfor %}
+        </nav>
+        <button id="add-category"><a href="">New Category</a></button>
+    </header>
+    <main>
+        <button id="rounded-add-btn"><a href="">+</a></button>
+        {% if tasks %}
+            {% for task in tasks %}
+                <div class="task-items">
+                    {{ task.title }}
+                </div>
+            {% endfor %}
 
-    <h1>Home Page | Todo Django</h1>
+        {% endif %}
+    </main>
 
 {% endblock content %}

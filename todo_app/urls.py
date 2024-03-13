@@ -4,4 +4,5 @@ from todo_app import views
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("<slug:slug>", views.home, name="home"),
 ]

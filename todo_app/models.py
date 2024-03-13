@@ -5,7 +5,8 @@ import uuid
 
 
 class Category(models.Model):
-    cat_name = models.CharField(unique=True, max_length=31)
+    cat_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+    cat_name = models.CharField("Category Name", unique=True, max_length=31)
 
     def __str__(self):
         return self.cat_name
