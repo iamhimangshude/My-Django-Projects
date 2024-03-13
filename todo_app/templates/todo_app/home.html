@@ -6,31 +6,30 @@ Todo App
 
 {% block content %}
     <header>
-        <h1>{% if cat_name != None %}{{ cat_name|capfirst }} Tasks{% else %}Your Tasks{% endif %}
+        <h1>Your Tasks
         </h1>
         <nav>
             <a href="{% url 'home' %}">All</a>
             {% for cat in categories %}
             <div class="scrollmenu">
-                <a href="{% url "home"  cat.cat_name|lower %}">{{ cat.cat_name }}</a>
+                <a href="{% url "home"  cat.cat_name %}">{{ cat.cat_name }}</a>
             </div>
             {% endfor %}
         </nav>
-        <button id="add-category" class="category-btn"><a href="">New Category</a></button>
-        {% if cat_name != None %}
-            <button id="delete-category" class="category-btn"><a href="">Delete Category</a></button>
-        {% endif %}
+        <button id="add-category" class="category-btn"><a href="{% url "create-category" %}">New Category</a></button>
     </header>
-    <main>
-        <button id="rounded-add-btn"><a href="">+</a></button>
-        {% if tasks %}
-            {% for task in tasks %}
-                <div class="task-items">
-                    {{ task.title }}
-                </div>
-            {% endfor %}
 
-        {% endif %}
+    <main>
+        <button id="rounded-add-btn"><a href="{% url "create-task" %}">+</a></button>
+
+        <div id="task-list">
+        {% for task in tasks %}
+            <div class="task-items">
+                {{ task.title }}
+            </div>
+        {% endfor %}
+        </div>
+
     </main>
 
 {% endblock content %}
