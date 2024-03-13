@@ -16,7 +16,10 @@ Todo App
             </div>
             {% endfor %}
         </nav>
-        <button id="add-category"><a href="">New Category</a></button>
+        <button id="add-category" class="category-btn"><a href="">New Category</a></button>
+        {% if cat_name != None %}
+            <button id="delete-category" class="category-btn"><a href="">Delete Category</a></button>
+        {% endif %}
     </header>
     <main>
         <button id="rounded-add-btn"><a href="">+</a></button>
