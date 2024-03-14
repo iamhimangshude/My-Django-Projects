@@ -22,11 +22,14 @@ div#overlay {
 }
 
 #create-task {
-    position: fixed;
-    top: 10px;
-    left: 37%;
     background-color: #e5e5e5;
-    margin: 10px 0 0 0;
+    width: 90%;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+
+.card {
+    margin-top: 10px !important;
     border-radius: 30px;
 }
 
@@ -45,6 +48,11 @@ div#overlay {
     margin: 0 auto;
     padding: 40px;
 
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: space-around;
 }
 
 .create-task-items {
@@ -155,7 +163,7 @@ button[type=submit] {
     font-family: 'Nunito Sans', sans-serif;
     background-color: transparent;
     border: 1px solid #FCA311;
-    padding: 2px;
+    padding: 5px;
     font-size: 16px;
     border-radius: 10px;
 }
@@ -163,7 +171,7 @@ button[type=submit] {
 #cancel-btn {
     font-family: 'Nunito Sans', sans-serif;
     display: inline-block;
-    padding: 2px;
+    padding: 5px;
     border: 1px solid #FCA311;
     border-radius: 10px;
 }
@@ -174,11 +182,11 @@ button[type=submit] {
 }
 
 #cancel-btn:hover {
-    background-color: #d1d0d0;
+    background-color: #FCA311;
 }
 
 button[type=submit]:hover {
-    background-color: #d1d0d0;
+    background-color: #FCA311;
     cursor: pointer;
 }
 

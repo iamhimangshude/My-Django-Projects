@@ -14,7 +14,7 @@ Create Task
 {% block content %}
     {% include "todo_app/home.html" %}
     <div id="overlay">
-        <div id="create-task">
+        <div id="create-task" class="card">
             <h1>Create Task</h1>
             <form action="{% url "create-task" %}" method="POST">
                 {% csrf_token %}
@@ -26,13 +26,14 @@ Create Task
                         </div>
                     {% endfor %}
                 
+                    <div id="form-buttons">
                     {% if create %}
                     <button type="submit">Create</button>
                     {% else %}
                     <button type="submit">Update</button>
                     {% endif %}
                     <div id="cancel-btn"><a href="{% url 'home' %}">Cancel</a></div>
-                
+                    </div>
             </form>
         </div>
     </div>

@@ -21,8 +21,10 @@ Create Category
                 {{ field }}
                 {{ field.errors }}
                 {% endfor %}
-                <button type="submit">Create</button>
-                <div id="cancel-btn"><a href="{% url 'home' %}">Cancel</a></div>
+                <div id="form-buttons">
+                    <button type="submit">Create</button>
+                    <div id="cancel-btn"><a href="{% url 'home' %}">Cancel</a></div>
+                </div>
             </form>
         </div>
     </section>
