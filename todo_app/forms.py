@@ -10,7 +10,7 @@ class TasksAddForm(forms.ModelForm):
 
     class Meta:
         model = Tasks
-        fields = "__all__"
+        exclude = ["is_completed"]
         widgets = {
             "due_date": forms.DateTimeInput(attrs={"type": "datetime-local"}),
         }

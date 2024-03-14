@@ -24,7 +24,7 @@ header {
 
 #complete_tasks {
     margin-right: 10px;
-    display: grid;
+    display: flex;
     place-items: center;
 }
 
@@ -32,8 +32,9 @@ header {
     text-decoration: none;
     color: #4a4e69;
     background-color: #e5e5e5;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
+    margin-right: 3px;
 }
 
 #complete_tasks a:hover {
@@ -41,7 +42,7 @@ header {
     text-decoration: none;
     color: #4a4e69;
     background-color: #d1d0d0;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
 }
 
