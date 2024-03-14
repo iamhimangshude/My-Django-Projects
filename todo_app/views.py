@@ -20,11 +20,11 @@ def home(request, slug=None):
         )
 
     if slug != None and slug != "completed":
-        task_list = Category.objects.get(cat_name=slug).category.filter(
+        task_list = Category.objects.get(cat_id=slug).category.filter(
             is_completed=False
         )
         context["tasks"] = task_list
-        context["slug"] = slug
+        context["slug"] = Category.objects.get(cat_id=slug).cat_name
 
     if slug == "completed":
         task_list = Tasks.objects.filter(is_completed=True)

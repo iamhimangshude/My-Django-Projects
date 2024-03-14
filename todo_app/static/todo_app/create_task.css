@@ -109,7 +109,6 @@ div#overlay {
 
 .create-task-items input:focus {
     font-family: 'Lato', sans-serif;
-    height: 10px;
     background-color: transparent;
     border-bottom: 2px solid #FCA311;
     border-top: none;

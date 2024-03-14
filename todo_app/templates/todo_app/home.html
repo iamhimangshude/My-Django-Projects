@@ -21,8 +21,8 @@ Todo App
     <section id="categories">
         <div class="scrollmenu">
             <a href="{% url 'home' %}" {% if slug == None %}class="background-yellow"{% endif %}>All</a>
-            {% for cat in categories %}
-                <a href="{% url "home"  cat.cat_name %}" class="{% if slug == cat.cat_name %}background-yellow{% endif %}">{{ cat.cat_name }}</a>
+            {% for cate in categories %}
+                <a href="{% url "home"  cate.cat_id %}" {% if slug == cate.cat_name %}class="background-yellow"{% endif %}>{{ cate.cat_name }}</a>
             {% endfor %}
         </div>
     </section>
