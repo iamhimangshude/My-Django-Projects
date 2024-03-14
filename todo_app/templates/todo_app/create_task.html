@@ -5,7 +5,7 @@ Create Task
 {% endblock title %}
 
 {% block content %}
-    <h1>Create Task</h1>
+    <h1>{% if create %}Create{% else %}Update{% endif %} Task</h1>
     <main>
         <div id="create-task">
             <form method="POST">
@@ -14,7 +14,9 @@ Create Task
                     <div class="task-items">
                         {{ form }}
                     </div>
-                <button type="submit">Create</button>
+                <button type="submit">
+                    {% if created %}Create{% else %}Update{% endif %}
+                </button>
             </form>
         </div>
     </main>

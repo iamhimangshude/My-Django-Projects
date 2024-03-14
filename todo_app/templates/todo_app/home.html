@@ -7,12 +7,16 @@ Todo App
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'todo_app/home.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> {% endcomment %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 {% endblock css_files %}
 
 {% block content %}
     <header>
-            <h1>Your Tasks {% if slug %} in {{ slug }}{% endif %}</h1>
+            <h1>Your Tasks {% if slug != None and slug != "completed" %} in {{ slug }}{% endif %}</h1>
+            <div id="complete_tasks" >
+                <a href="{% url "home" "completed" %}"class=" {% if slug == "completed" %}background-yellow{% endif %}">Show Completed Tasks</a>
+            </div>
     </header>
     <section id="categories">
         <div class="scrollmenu">
@@ -30,7 +34,31 @@ Todo App
         <div id="task-list">
         {% for task in tasks %}
             <div class="task-items">
-                <p>{{ task.title }} <span>{{ task.detail_text }}</span></p>
+                <div>
+                    <li>{{ task.title }} <span >{{ task.detail_text }}</span></li>
+                </div>
+                <div class="action-buttons">
+                    <a href="{% url "edit-task" task.task_id %}">
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </a>
+                    <a href="{% url "is-completed" task.task_id %}">
+                        <span class="material-symbols-outlined">
+                            {% if slug == "completed" %}
+                                pending
+                            {% else %}
+                                done_all
+                            {% endif %}
+                            
+                        </span>
+                    </a>
+                    <a href="{% url "delete-task" task.task_id %}">
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </a>
+                </div>
             </div>
         {% endfor %}
         </div>
