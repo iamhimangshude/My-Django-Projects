@@ -13,22 +13,24 @@ Todo App
 
 {% block content %}
     <header>
-            <h1>Your Tasks {% if slug != None and slug != "completed" %} in {{ slug }}{% endif %}</h1>
+            <nav>
+                <h1>Your Tasks {% if slug != None and slug != "completed" %} in {{ slug }}{% endif %}</h1>
             <div id="complete_tasks" >
                 <a href="{% url "home" "completed" %}"class=" {% if slug == "completed" %}background-yellow{% endif %}">Show Completed Tasks</a>
                 <br>
                 <a href="{% url "home" "starred" %}"class=" {% if slug == "starred" %}background-yellow{% endif %}">Show Starred Tasks</a>
             </div>
+            </nav>
             
+            <section id="categories">
+                <div class="scrollmenu">
+                    <a href="{% url 'home' %}" {% if slug == None %}class="background-yellow"{% endif %}>All</a>
+                    {% for cate in categories %}
+                    <a href="{% url "home"  cate.cat_id %}" {% if slug == cate.cat_name %}class="background-yellow"{% endif %}>{{ cate.cat_name }}</a>
+                    {% endfor %}
+                </div>
+            </section>
     </header>
-    <section id="categories">
-        <div class="scrollmenu">
-            <a href="{% url 'home' %}" {% if slug == None %}class="background-yellow"{% endif %}>All</a>
-            {% for cate in categories %}
-                <a href="{% url "home"  cate.cat_id %}" {% if slug == cate.cat_name %}class="background-yellow"{% endif %}>{{ cate.cat_name }}</a>
-            {% endfor %}
-        </div>
-    </section>
     
     <main>
         <div id="add-category" class="rounded-btn"><a href="{% url "create-category" %}"><span class="material-symbols-outlined">category</span></a></div>
