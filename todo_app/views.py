@@ -15,7 +15,6 @@ def home(request, slug=None):
     context["tasks"] = []
     context["slug"] = None
     for items in category_data:
-        # print(Category.objects.get(cat_name=items).category.all())
         context["tasks"].extend(
             Category.objects.get(cat_name=items).category.filter(is_completed=False)
         )
@@ -35,14 +34,26 @@ def home(request, slug=None):
 
 
 def create_task(request):
+    category_data = Category.objects.all()
+    context = {}
+    context["categories"] = category_data
+    context["tasks"] = []
+    for items in category_data:
+        context["tasks"].extend(
+            Category.objects.get(cat_name=items).category.filter(is_completed=False)
+        )
+    context["slug"] = None
     form = TasksAddForm()
+    context["form"] = form
+    context["create"] = True
     if request.method == "POST":
         form = TasksAddForm(request.POST)
+        context["form"] = form
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("home"))
 
-    return render(request, "todo_app/create_task.html", {"form": form})
+    return render(request, "todo_app/create_task.html", context)
 
 
 def create_category(request):
