@@ -20,7 +20,7 @@ Create Task
                 {% csrf_token %}
                     {% for field in form %}
                         <div class="create-task-items">
-                            <span>{{ field.label }}</span>
+                            <span>{{ field.label }}:</span>
                             {{ field }}
                             {{ field.errors }}
                         </div>

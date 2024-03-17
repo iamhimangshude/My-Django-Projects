@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from todo_app.forms import CategoryAddForm, TasksAddForm
+from todo_app.forms import CategoryAddForm, TasksAddForm, TasksEditForm
 from todo_app.models import Tasks, Category
 
 # Create your views here.
@@ -100,10 +100,10 @@ def edit_task(request, task_id):
 
     # Main form part
     task = Tasks.objects.get(task_id=task_id)
-    form = TasksAddForm(instance=task)
+    form = TasksEditForm(instance=task)
     context["form"] = form
     if request.method == "POST":
-        form = TasksAddForm(request.POST, instance=task)
+        form = TasksEditForm(request.POST, instance=task)
         context["form"] = form
         if form.is_valid():
             form.save()

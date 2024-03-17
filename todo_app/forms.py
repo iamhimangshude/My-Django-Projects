@@ -17,6 +17,21 @@ class TasksAddForm(forms.ModelForm):
         }
 
 
+class TasksEditForm(forms.ModelForm):
+    cat_name = forms.ModelChoiceField(
+        queryset=Category.objects.all(), label="Select Category", required=False
+    )
+    is_starred = forms.BooleanField(label="Star Task", required=False)
+    is_completed = forms.BooleanField(label="Mark as Done", required=False)
+
+    class Meta:
+        model = Tasks
+        exclude = "__all__"
+        widgets = {
+            "due_date": forms.DateTimeInput(attrs={"type": "datetime-local"}),
+        }
+
+
 class CategoryAddForm(forms.ModelForm):
     class Meta:
         model = Category
