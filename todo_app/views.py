@@ -115,7 +115,9 @@ def edit_task(request, task_id):
         context["form"] = form
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(f"/{request.session.get('slug')}")
+            if request.session.get("slug") is not None:
+                return HttpResponseRedirect(f"/{request.session.get('slug')}")
+            return HttpResponseRedirect("/")
     return render(request, "todo_app/edit_task.html", context)
 
 
