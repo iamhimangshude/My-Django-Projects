@@ -13,8 +13,7 @@ def home(request, slug=None):
     context["categories"] = category_data
     context["tasks"] = []
     context["slug"] = None
-    if "slug" in request.session:
-        request.session.pop("slug")
+    request.session["slug"] = ""
     for items in category_data:
         context["tasks"].extend(
             Category.objects.get(cat_name=items).category.filter(is_completed=False)
