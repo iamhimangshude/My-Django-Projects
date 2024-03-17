@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
 
 from todo_app.forms import CategoryAddForm, TasksAddForm
 from todo_app.models import Tasks, Category
@@ -25,16 +24,19 @@ def home(request, slug=None):
         )
         context["tasks"] = task_list
         context["slug"] = Category.objects.get(cat_id=slug).cat_name
+        request.session["slug"] = slug
 
     if slug == "completed":
         task_list = Tasks.objects.filter(is_completed=True)
         context["tasks"] = task_list
         context["slug"] = slug
+        request.session["slug"] = slug
 
     if slug == "starred":
         task_list = Tasks.objects.filter(is_starred=True)
         context["tasks"] = task_list
         context["slug"] = slug
+        request.session["slug"] = slug
     return render(request, "todo_app/home.html", context)
 
 
@@ -57,7 +59,7 @@ def create_task(request):
         context["form"] = form
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("home"))
+            return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
     return render(request, "todo_app/create_task.html", context)
 
@@ -79,7 +81,7 @@ def create_category(request):
         context["form"] = form
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("home"))
+            return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
     return render(
         request,
@@ -107,7 +109,7 @@ def edit_task(request, task_id):
         context["form"] = form
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("home"))
+            return HttpResponseRedirect(f"/{request.session.get('slug')}")
     return render(request, "todo_app/edit_task.html", context)
 
 
@@ -115,19 +117,17 @@ def is_completed(request, task_id):
     task = Tasks.objects.get(task_id=task_id)
     task.is_completed = not task.is_completed
     task.save()
-    return HttpResponseRedirect(reverse("home"))
+    return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
 
 def delete_task(request, task_id):
-    if request.method == "GET":
-        print(request.GET)
     task = Tasks.objects.get(task_id=task_id)
     task.delete()
-    return HttpResponseRedirect(reverse("home"))
+    return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
 
 def star_task(request, task_id):
     task = Tasks.objects.get(task_id=task_id)
     task.is_starred = not task.is_starred
     task.save()
-    return HttpResponseRedirect(reverse("home"))
+    return HttpResponseRedirect(f"/{request.session.get('slug')}")
