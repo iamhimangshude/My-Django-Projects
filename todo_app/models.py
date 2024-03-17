@@ -25,7 +25,11 @@ class Tasks(models.Model):
     is_starred = models.BooleanField(default=False)
     is_completed = models.BooleanField(default=False)
     cat_name = models.ForeignKey(
-        Category, on_delete=models.CASCADE, related_name="category"
+        Category,
+        on_delete=models.CASCADE,
+        related_name="category",
+        null=True,
+        blank=True,
     )
 
     def __str__(self):
