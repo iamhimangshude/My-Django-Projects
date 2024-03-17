@@ -48,9 +48,10 @@ def create_task(request):
             Category.objects.get(cat_name=items).category.filter(is_completed=False)
         )
     context["slug"] = None
+
+    # Main form part
     form = TasksAddForm()
     context["form"] = form
-    context["create"] = True
     if request.method == "POST":
         form = TasksAddForm(request.POST)
         context["form"] = form
@@ -88,14 +89,26 @@ def create_category(request):
 
 
 def edit_task(request, task_id):
+    category_data = Category.objects.all()
+    context = {}
+    context["categories"] = category_data
+    context["tasks"] = []
+    for items in category_data:
+        context["tasks"].extend(
+            Category.objects.get(cat_name=items).category.filter(is_completed=False)
+        )
+
+    # Main form part
     task = Tasks.objects.get(task_id=task_id)
     form = TasksAddForm(instance=task)
+    context["form"] = form
     if request.method == "POST":
         form = TasksAddForm(request.POST, instance=task)
+        context["form"] = form
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("home"))
-    return render(request, "todo_app/create_task.html", {"form": form, "create": False})
+    return render(request, "todo_app/edit_task.html", context)
 
 
 def is_completed(request, task_id):
@@ -106,6 +119,8 @@ def is_completed(request, task_id):
 
 
 def delete_task(request, task_id):
+    if request.method == "GET":
+        print(request.GET)
     task = Tasks.objects.get(task_id=task_id)
     task.delete()
     return HttpResponseRedirect(reverse("home"))

@@ -170,6 +170,16 @@ header h1 {
     color: #212122;
 }
 
+.task-items li #task-date {
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+    display: block;
+    color: #212122;
+    padding: 5px;
+    border: 1px solid #212122;
+    border-radius: 10px;
+}
+
 .task-items:hover {
     background-color: #fca311;
     border-color: #fca311;

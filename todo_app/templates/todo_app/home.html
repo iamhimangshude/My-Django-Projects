@@ -40,7 +40,12 @@ Todo App
         {% for task in tasks %}
             <div class="task-items">
                 <div>
-                    <li>{{ task.title }} <span >{{ task.detail_text }}</span></li>
+                    <li>
+                        {{ task.title }} <span >{{ task.detail_text }}</span>
+                        {% if task.due_date != None %}
+                            <span id="task-date">{{ task.due_date }}</span>
+                        {% endif %}
+                    </li>
                 </div>
                 <div class="action-buttons">
                     <a href="{% url "edit-task" task.task_id %}">

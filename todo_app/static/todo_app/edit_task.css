@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #4a4e69a9; */
+}
+
+div#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.61) !important;
+    z-index: 10;
+}
+
+#create-task {
+    background-color: #e5e5e5;
+    width: 90%;
+    max-width: 35rem;
+    margin: 0 auto;
+}
+
+.card {
+    margin-top: 10px !important;
+    border-radius: 30px;
+}
+
+#create-task h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #FCA311;
+    padding: 5px;
+    color: #14213D;
+    text-align: center;
+    margin: 0;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+#create-task form {
+    margin: 0 auto;
+    padding: 40px;
+
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.create-task-items {
+    margin-bottom: 5px;
+    align-self: baseline;
+}
+
+.create-task-items span {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    margin-right: 3px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.create-task-items input {
+    font-family: 'Lato', sans-serif;
+    height: 10px;
+    background-color: transparent;
+    border-bottom: 2px dotted #FCA311;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0.2rem;
+}
+
+.create-task-items input[type=datetime-local] {
+    font-family: 'Lato', sans-serif;
+    height: 10px;
+    background-color: transparent;
+    border-bottom: 2px dotted #FCA311;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0.5rem;
+}
+
+.create-task-items input[type=checkbox] {
+    display: inline-block;
+    padding: 10px;
+    margin: 0;
+    height: 15px;
+    width: 15px;
+}
+
+.create-task-items textarea {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    height: 18px;
+    width: 8rem;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px dotted #FCA311;
+    border-right: 2px dotted #FCA311;
+}
+
+.create-task-items select {
+    font-family: 'Lato', sans-serif;
+    border: 2px dotted #FCA311;
+    padding: 2px;
+}
+
+.create-task-items input:focus {
+    font-family: 'Lato', sans-serif;
+    background-color: transparent;
+    border-bottom: 2px solid #FCA311;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0.2rem;
+    outline: none;
+    transition: 1s ease-in-out;
+}
+
+.create-task-items textarea:focus {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    height: 18px;
+    width: 8rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid #FCA311;
+    border-right: 2px solid #FCA311;
+    transition: 1s ease-in-out;
+}
+
+.create-task-items input[type=datetime-local]:focus {
+    font-family: 'Lato', sans-serif;
+    height: 10px;
+    background-color: transparent;
+    border-bottom: 2px solid #FCA311;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0.5rem;
+    transition: 1s ease-in-out;
+}
+
+.create-task-items select:focus {
+    font-family: 'Lato', sans-serif;
+    border: 2px solid #FCA311;
+    padding: 2px;
+}
+
+button[type=submit] {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: transparent;
+    border: 1px solid #FCA311;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#cancel-btn {
+    font-family: 'Nunito Sans', sans-serif;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #FCA311;
+    border-radius: 10px;
+}
+
+#cancel-btn a {
+    text-decoration: none;
+    color: #14213D;
+}
+
+#cancel-btn:hover {
+    background-color: #FCA311;
+}
+
+button[type=submit]:hover {
+    background-color: #FCA311;
+    cursor: pointer;
+}
+
+#add-task {
+    display: none !important;
+}
+
+#add-category {
+    display: none;
+}
+
+header,
+#categories,
+#task-list {
+    filter: blur(5px);
+}
