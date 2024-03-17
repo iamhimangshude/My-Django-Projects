@@ -11,4 +11,9 @@ urlpatterns = [
     path("is-completed/<uuid:task_id>", views.is_completed, name="is-completed"),
     path("star-task/<uuid:task_id>", views.star_task, name="star-task"),
     path("delete-task/<uuid:task_id>", views.delete_task, name="delete-task"),
+    path(
+        "delete-category/<uuid:category_id>",
+        views.delete_category,
+        name="delete-category",
+    ),
 ]

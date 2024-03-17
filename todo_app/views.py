@@ -13,7 +13,8 @@ def home(request, slug=None):
     context["categories"] = category_data
     context["tasks"] = Tasks.objects.filter(is_completed=False)
     context["slug"] = None
-    request.session["slug"] = ""
+    if slug == None:
+        request.session["slug"] = ""
 
     if slug != None and slug != "completed" and slug != "starred":
         task_list = Category.objects.get(cat_id=slug).category.filter(
@@ -21,19 +22,20 @@ def home(request, slug=None):
         )
         context["tasks"] = task_list
         context["slug"] = Category.objects.get(cat_id=slug).cat_name
+        request.session["prev_slug"] = request.session["slug"]
         request.session["slug"] = slug
 
     if slug == "completed":
         task_list = Tasks.objects.filter(is_completed=True)
         context["tasks"] = task_list
         context["slug"] = slug
-        request.session["slug"] = slug
+        request.session["slug"] = ""
 
     if slug == "starred":
         task_list = Tasks.objects.filter(is_starred=True)
         context["tasks"] = task_list
         context["slug"] = slug
-        request.session["slug"] = slug
+        request.session["slug"] = ""
     return render(request, "todo_app/home.html", context)
 
 
@@ -52,8 +54,8 @@ def create_task(request):
         context["form"] = form
         if form.is_valid():
             form.save()
-            redirect_to = form.cleaned_data["cat_name"]
-            if redirect_to != None:
+            if form.cleaned_data.get("cat_name") != None:
+                redirect_to = Category.objects.get(cat_name=form.cleaned_data["cat_name"]).cat_id
                 return HttpResponseRedirect(f"/{redirect_to}")
             return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
@@ -64,10 +66,7 @@ def create_category(request):
     category_data = Category.objects.all()
     context = {}
     context["categories"] = category_data
-    context["tasks"] = []
-    for items in category_data:
-        # print(Category.objects.get(cat_name=items).category.all())
-        context["tasks"].extend(Category.objects.get(cat_name=items).category.all())
+    context["tasks"] = Tasks.objects.filter(is_completed=False)
 
     # Main category part
     form = CategoryAddForm()
@@ -108,7 +107,7 @@ def edit_task(request, task_id):
         context["form"] = form
         if form.is_valid():
             form.save()
-            if request.session.get("slug") != None:
+            if request.session.get("slug") != "":
                 return HttpResponseRedirect(f"/{request.session.get('slug')}")
             return HttpResponseRedirect("/")
     return render(request, "todo_app/edit_task.html", context)
@@ -124,15 +123,18 @@ def is_completed(request, task_id):
 def delete_task(request, task_id):
     task = Tasks.objects.get(task_id=task_id)
     task.delete()
-    if request.session.get("slug") is not None:
-        return HttpResponseRedirect(f"/{request.session.get('slug')}")
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(f"/{request.session.get('slug')}")
 
 
 def star_task(request, task_id):
     task = Tasks.objects.get(task_id=task_id)
     task.is_starred = not task.is_starred
     task.save()
-    if request.session.get("slug") is not None:
-        return HttpResponseRedirect(f"/{request.session.get('slug')}")
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect(f"/{request.session.get('slug')}")
+
+
+def delete_category(request, category_id):
+    category = Category.objects.get(cat_id=category_id)
+    category.delete()
+    request.session['slug'] = ""
+    return HttpResponseRedirect(f"/{request.session.get("prev_slug")}")

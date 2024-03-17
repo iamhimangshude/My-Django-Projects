@@ -38,6 +38,10 @@ header nav {
     place-items: center;
 }
 
+#complete_tasks #category-delete {
+    color: red;
+}
+
 #complete_tasks a {
     text-decoration: none;
     color: #4a4e69;

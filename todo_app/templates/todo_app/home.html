@@ -16,6 +16,9 @@ Todo App
             <nav>
                 <h1>Your Tasks {% if slug != None and slug != "completed" %} in {{ slug }}{% endif %}</h1>
             <div id="complete_tasks" >
+                {% if request.session.slug != "" %}
+                <a id="category-delete" href="{% url "delete-category" request.session.slug %}">Delete This Category</a>
+                {% endif %}
                 <a href="{% url "home" "completed" %}"class=" {% if slug == "completed" %}background-yellow{% endif %}">Show Completed Tasks</a>
                 <br>
                 <a href="{% url "home" "starred" %}"class=" {% if slug == "starred" %}background-yellow{% endif %}">Show Starred Tasks</a>
