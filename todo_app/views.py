@@ -111,7 +111,7 @@ def edit_task(request, task_id):
     return render(request, "todo_app/edit_task.html", context)
 
 
-def is_completed(request, task_id):
+def complete_task(request, task_id):
     task = Tasks.objects.get(task_id=task_id)
     task.is_completed = not task.is_completed
     task.save()

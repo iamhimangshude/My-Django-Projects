@@ -56,7 +56,7 @@ Todo App
                             edit
                         </span>
                     </a>
-                    <a href="{% url "is-completed" task.task_id %}">
+                    <a href="{% url "complete-task" task.task_id %}">
                         <span class="material-symbols-outlined">
                             {% if slug == "completed" %}
                                 pending
@@ -71,19 +71,15 @@ Todo App
                             delete
                         </span>
                     </a>
-                    {% if task.is_starred == False  %}
                     <a href="{% url "star-task" task.task_id %}">
                         <span class="material-symbols-outlined">
+                            {% if task.is_starred == False  %}
                             star
-                        </span>
-                    </a>
-                    {% else %}
-                    <a href="{% url "star-task" task.task_id %}">
-                        <span class="material-symbols-outlined">
+                            {% else %}
                             star_half
+                            {% endif %}
                         </span>
                     </a>
-                    {% endif %}
                     
                 </div>
             </div>

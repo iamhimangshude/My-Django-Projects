@@ -8,7 +8,7 @@ urlpatterns = [
     path("create-category/", views.create_category, name="create-category"),
     path("create-task/", views.create_task, name="create-task"),
     path("edit-task/<uuid:task_id>", views.edit_task, name="edit-task"),
-    path("is-completed/<uuid:task_id>", views.is_completed, name="is-completed"),
+    path("complete-task/<uuid:task_id>", views.complete_task, name="complete-task"),
     path("star-task/<uuid:task_id>", views.star_task, name="star-task"),
     path("delete-task/<uuid:task_id>", views.delete_task, name="delete-task"),
     path(
