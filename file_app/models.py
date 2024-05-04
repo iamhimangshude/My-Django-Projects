@@ -1,5 +1,5 @@
 from django.db import models
-import uuid
+import uuid, os
 
 
 # Create your models here.
@@ -28,3 +28,36 @@ class File(models.Model):
         null=True,
         blank=True,
     )
+
+    def file_type(self):
+        # Get the file extension
+        _, extension = os.path.splitext(self.file.name)
+        # Remove the dot from the extension
+        extension = extension.lstrip(".")
+
+        # Define mappings for common file types
+        image_extensions = ["jpg", "jpeg", "png", "gif", "bmp"]
+        document_extensions = [
+            "pdf",
+            "doc",
+            "docx",
+            "xls",
+            "xlsx",
+            "ppt",
+            "pptx",
+            "txt",
+        ]
+        video_extensions = ["mp4", "avi", "mkv", "mov", "wmv"]
+        audio_extensions = ["mp3", "wav", "ogg", "flac"]
+
+        # Check if the file extension belongs to a specific category
+        if extension.lower() in image_extensions:
+            return "image"
+        elif extension.lower() in document_extensions:
+            return "document"
+        elif extension.lower() in video_extensions:
+            return "video"
+        elif extension.lower() in audio_extensions:
+            return "audio"
+        else:
+            return "other"
