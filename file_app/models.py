@@ -36,7 +36,7 @@ class File(models.Model):
         extension = extension.lstrip(".")
 
         # Define mappings for common file types
-        image_extensions = ["jpg", "jpeg", "png", "gif", "bmp"]
+        image_extensions = ["jpg", "jpeg", "png", "gif", "bmp", "webp", "svg", "ico"]
         document_extensions = [
             "pdf",
             "doc",
@@ -47,8 +47,8 @@ class File(models.Model):
             "pptx",
             "txt",
         ]
-        video_extensions = ["mp4", "avi", "mkv", "mov", "wmv"]
-        audio_extensions = ["mp3", "wav", "ogg", "flac"]
+        video_extensions = ["mp4", "avi", "mkv", "mov", "wmv", "flv", "webm"]
+        audio_extensions = ["mp3", "wav", "ogg", "flac", "amr", "m4a", "3gp"]
 
         # Check if the file extension belongs to a specific category
         if extension.lower() in image_extensions:
