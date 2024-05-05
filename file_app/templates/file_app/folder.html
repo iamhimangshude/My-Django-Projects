@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>{{ folder.name }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ folder.name }}</h1>
+        {% if folder.parent_folder %}
+        <a href="{% url 'folder-view' folder.parent_folder.folder_id %}"><i class="material-icons">arrow_back_ios</i></a>
+        {% else %}
+        <a href="{% url 'index' %}"><i class="material-icons">arrow_back_ios</i></a>
+        {% endif %}
+    </header>
+    <div id="folder-files">
+        {% for f in folder.files.all %}
+        <div class="file-box">
+            <a href="{{ f.file.url }}" target="_blank">{{ f.get_file_name }}</a>
+            <p>{{ f.created_at }}</p>
+        </div>
+        {% endfor %}
+        {% for fo in folder.subfolders.all %}
+        <div class="folder-box">
+            <a href="{% url 'folder-view' fo.folder_id %}">{{ fo.name }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

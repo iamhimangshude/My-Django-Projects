@@ -16,6 +16,9 @@ class Folder(models.Model):
         related_name="subfolders",
     )
 
+    def __str__(self):
+        return self.name
+
 
 class File(models.Model):
     file_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -28,6 +31,12 @@ class File(models.Model):
         null=True,
         blank=True,
     )
+
+    def get_file_name(self):
+        return os.path.basename(self.file.name)
+
+    def __str__(self):
+        return self.get_file_name()
 
     def file_type(self):
         # Get the file extension
@@ -61,3 +70,10 @@ class File(models.Model):
             return "audio"
         else:
             return "other"
+
+    def get_extension(self):
+        # Get the file extension
+        _, extension = os.path.splitext(self.file.name)
+        # Remove the dot from the extension
+        extension = extension.lstrip(".")
+        return extension
