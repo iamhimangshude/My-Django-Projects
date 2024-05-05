@@ -10,13 +10,7 @@ from file_app.models import File, Folder
 def index(request):
     files = File.objects.filter(folder=None)
     folders = Folder.objects.filter(is_subfolder=False)
-    print(
-        {
-            "files": files,
-            "folders": folders,
-        },
-        flush=False,
-    )
+
     return render(
         request,
         "file_app/index.html",
