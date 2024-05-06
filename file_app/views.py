@@ -27,8 +27,9 @@ def file_upload_view(request):
         form = FileFieldForm(request.POST, request.FILES)
         if form.is_valid():
             files = request.FILES.getlist("file_field")
+            folder = form.cleaned_data["folder"]
             for file in files:
-                File.objects.create(file=file)
+                File.objects.create(file=file, folder=folder)
     return render(request, "file_app/file-upload.html", context={"form": form})
 
 

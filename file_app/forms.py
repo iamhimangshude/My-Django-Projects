@@ -1,5 +1,7 @@
 from django import forms
 
+from file_app.models import Folder
+
 
 class MultipleFileInput(forms.ClearableFileInput):
     allow_multiple_selected = True
@@ -21,3 +23,4 @@ class MultipleFileField(forms.FileField):
 
 class FileFieldForm(forms.Form):
     file_field = MultipleFileField()
+    folder = forms.ModelChoiceField(queryset=Folder.objects.all())
