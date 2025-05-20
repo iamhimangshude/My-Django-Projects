@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Sign Up | The Blog Company
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "auth_app/register.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+
+<div class="bg-img">
+    <img src="{% static "images/turned-on-bokeh-light.jpg" %}" alt="">
+</div>
+<div class="container">
+    <div class="header">
+        <h1>The <span class="bg-black">Blog</span> Company</h1>
+        <p>Express your views and thoughts. Make your place among millions!</p>
+    </div>
+    <hr>
+    <div class="form-wrap">
+        <h1>Sign Up</h1>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            {% for items in form %}
+                <div class="form-controls">
+                    {{items}}
+                    {{items.errors}}
+                </div>
+            {% endfor %}
+            <button type="submit">Register</button>
+        </form>
+        <section>
+            <div id='login-section'>
+                <p>Already connected with Us? <span>Please <a href="{% url 'login' %}">Login</a> Here!</span></p>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock page_content %}

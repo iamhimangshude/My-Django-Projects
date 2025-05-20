@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+Reset Password | The Blog Company
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "auth_app/user_email.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+<main id="display-area">
+    <div class="container">
+        <div class="form-wrap">
+            <div class="header-msg">
+                <h1>Enter Your Email</h1>
+                <p>Please enter the email which associated with your TBC Account!</p>
+            </div>
+            <form action="{{request.get_full_path}}" method="post">
+                {% csrf_token %}
+                <input type="email" name="user_email" id="id_user_email" placeholder="mail@example.com">
+                {% if message %}
+                <p id='message'>{{message}}</p>
+                {% endif %}
+                <button type="submit">Send OTP</button>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock page_content %}

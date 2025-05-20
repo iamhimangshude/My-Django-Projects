@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Account | The Blog Company
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "auth_app/accounts.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+<header>
+    <h1>Your <span class="bg-black">Account</span></h1>
+    <nav id="logout-delete">
+        <div class="btn">
+            <a href="{% url "all-blogs" %}">Home</a>
+        </div>
+        <div class="btn">
+            <a href="{% url "update" %}" target='_blank'>Update Info</a>
+        </div>
+        <div class="btn">
+            <a href="{% url "logout" %}">Check Out</a>
+        </div>
+        <div class="btn red">
+            <a href="{% url "delete" %}">Delete Account</a>
+        </div>
+    </nav>
+</header>
+<main>
+    <section id="basic-credentials">
+        <div class="credential-group">
+            <h3>Your Information</h3>
+        </div>
+        <div class="credentials">
+            <div id="name-group">
+                <div class="label-block">
+                    <p class='label-surr-box'>First Name:</p>
+                    <p class="info-surr-box">
+                        {% if user_data.first_name == '' %}
+                        &nbsp;
+                        {% else %}
+                        {{user_data.first_name}}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="label-block">
+                    <p class='label-surr-box'>Last Name:</p>
+                    
+                    <p class="info-surr-box">
+                            {% if user_data.last_name == '' %}
+                                &nbsp;
+                            {% else %}
+                                {{user_data.last_name}}
+                            {% endif %}
+
+                    </p>
+                </div>
+                <div class="label-block">
+                    <p class='label-surr-box'>Email:</p>
+                    <p class='info-surr-box'>{{user_data.email}}</p>
+                </div>
+            </div>
+            <div id="password-group">
+                <p><strong>Note:</strong> Passwords aren't stored! You can change it <a href="{% url "update-password" %}" target='_blank'>here</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="important-dates">
+        <div class="credential-group dates">
+            <h3>Important Dates</h3>
+        </div>
+        <div id="date-group" class='credentials'>
+            <div class="label-block">
+            <p class="label-surr-box">Date of Birth:</p>
+            <p class="info-surr-box">
+                {% if user_data.date_of_birth == None %}
+                    Not Provided
+                {% else %}
+                    {{user_data.date_of_birth}}
+                {% endif %}
+
+            </p>
+            </div>
+            
+            <div class="label-block">
+                <p class="label-surr-box">Last Login:</p>
+                <p class="info-surr-box">{{user_data.last_login}}</p>
+            </div>
+        
+            <div class="label-block">
+                <p class="label-surr-box">Joined on:</p>
+                <p class="info-surr-box">{{user_data.date_joined}}</p>
+            </div>
+        </div>
+    </section>
+    
+</main>
+{% endblock page_content %}

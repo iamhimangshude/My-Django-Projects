@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Verify | The Blog Company
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "auth_app/verify_otp.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+<main id="display-area">
+    <div class="container">
+        <div class="form-wrap">
+            <h1>Enter OTP</h1>
+            <form action="{{request.get_full_path}}" method="post">
+                {% csrf_token %}
+                <input type="text" name='otp_text' id='id_otp_text' placeholder='Some six digits number!'>
+                <button type="submit">Verify</button>
+            </form>
+        </div>
+        {% if message == "OTP Expired" %}
+        <form action="{% url "forgot-password" %}" method="post" id='resend-form'>
+            <p id='error-message'>OTP has Expired!</p>
+            {% csrf_token %}
+            <input type="hidden" name="user_email" value="{{request.session.user_email}}">
+            <button type="submit" id='resend-otp'>Resend OTP</button>
+        </form>
+        {% else %}
+        <p id='error-message'>{{ message }}</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock page_content %}

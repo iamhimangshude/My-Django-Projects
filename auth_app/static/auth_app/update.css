@@ -1,0 +1,146 @@
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url("../../../static/images/macbook-pro-beside-white-ipad.jpg") no-repeat center center/cover;
+    height: 100vh;
+}
+
+/* Form Styling */
+.form-wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff91;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.form-header{
+    margin-bottom: 10px;
+}
+
+form{
+    margin: 5px 10px 10px 10px;
+}
+
+.form-controls {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.form-controls div{
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: start;
+}
+
+.form-controls div>label{
+    margin-right: 10px;
+    order: 1;
+}
+
+.form-controls div>input{
+    height: 22px;
+    padding: 2px;
+    margin: 5px 5px 0px 5px;
+    width: 200px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: 0.8s ease;
+    order: 2;
+}
+
+.form-controls div>input:focus{
+    outline:none;
+    border-bottom: 1px solid #000;
+    transition: 0.8s ease;
+}
+
+.form-controls div>input[aria-invalid='true']{
+    border-bottom: 1px solid #f00;
+}
+
+.form-controls div ul.errorlist{
+    list-style: none;
+    order: 3;
+    color: #f00;
+    font-size: small;
+    padding: 5px;
+    margin: 0;
+}
+
+.btn-grp{
+    flex-direction: row !important;
+    gap: 35px !important;
+}
+
+.btn-grp button#update{
+    font-family: inherit;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: transparent;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.8s ease;
+}
+
+.btn-grp button#update:hover{
+    background: #000;
+    color: #fff;
+}
+
+.btn-grp button#close{
+    font-family: inherit;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: transparent;
+    align-self: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.8s ease;
+}
+
+.btn-grp button#close:hover{
+    background: #000;
+    color: #fff;
+}
+
+/* Info Box */
+.info-box{
+    border: 1px solid #2196f3;
+    border-radius: 5px;
+    background: #2196f3;
+    width: 320px;
+}
+.info-box p{
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: bold;
+    word-wrap: normal;
+}
+
+.info-box a{
+    color: #fff;
+}

@@ -1,0 +1,136 @@
+
+html, body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.bg-black{
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.bg-img{
+    overflow: hidden;
+    height: auto;
+    width: auto;
+}
+
+.bg-img img{
+    background: no-repeat center center/cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Container */
+.container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    margin: 20px auto;    
+    padding: 10px;
+    background: linear-gradient(90deg, #add4f7, #c7e3fc);
+    border-radius: 15px;
+    width: 750px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container .header{
+    position: relative;
+    top: 100px;
+    left: 10px;
+    align-self: unset;
+    display: block;
+    height: fit-content;
+    width: 350px;
+    word-break: keep-all;
+}
+
+.header p{
+    line-height: 1.6em;
+}
+
+hr{
+    border: 1px solid #000;
+    height: 250px;
+    margin-top: 90px;
+}
+
+/* Form part */
+.form-wrap h1{
+    text-align: center;
+}
+
+form{
+    margin: 30px;
+}
+
+.form-controls{
+    padding-right: 10px;
+    margin-top: 10px;
+}
+
+.form-controls input{
+    height: 28px;
+    border: 1px solid #d5faff;
+    outline: none;
+    border-radius: 10px;
+    color: #000;
+    padding-left: 5px;
+    background: #d5faff;
+    width: 100%;
+}
+
+.form-controls input:focus{
+    border: 1px solid #000;
+}
+
+.form-wrap button{
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    background: transparent;
+    color: #000;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.form-wrap button:hover{
+    background: #d5faff;
+}
+
+#login-section p{
+    text-align: center;
+}
+
+#login-section span {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#login-section span a{
+    text-decoration: none;
+    color: #7f96d1;
+    border: 1px solid transparent;
+}
+
+#login-section span a:hover{
+    border: 1px solid #7f96d1;
+    border-radius: 5px;
+}

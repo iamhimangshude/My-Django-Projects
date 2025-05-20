@@ -1,0 +1,138 @@
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(../../../static/images/blog-account.jpg) no-repeat center center/cover;
+    height: 100vh;
+}
+
+
+/* Header */
+header{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0f8ff94;
+}
+
+#logout-delete{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logout-delete a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Utility class */
+.btn{
+    padding: 5px;
+    border: 1px solid #003049;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.btn:hover{
+    background: #003049;
+    color: #f0f8ff;
+}
+
+.red{
+    background: red;
+    border:1px solid red ;
+    color: #f0f8ff ;
+}
+
+.red:hover{
+    background: #b40000;
+    border: 1px solid #b40000;
+}
+
+
+/* Main Section */
+#basic-credentials,
+#important-dates{
+    margin: 5px 10px;
+}
+
+#important-dates{
+    margin-top: 5px;
+}
+
+.bg-black{
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.credential-group{
+    background: #48a3b9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.credential-group h3{
+    padding: 5px;
+    margin: 0;
+}
+
+.credentials{
+    background: #f0f8ff94;
+    padding: 0 10px 10px 10px;
+}
+
+.label-block{
+    width: 400px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.label-surr-box{
+    width: 120px;
+}
+
+.info-surr-box{
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#password-group{
+    border: 1px solid #2196f3;
+    border-radius: 10px;
+    background: #2196f3;
+    color: #fff;
+    display: inline-block;
+}
+
+#password-group p{
+    padding: 3px;
+    margin: 5px;
+}
+
+#password-group a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+#password-group a{
+    text-decoration: underline;
+}
+
+.credential-group.dates{
+    border-top-right-radius: 0;
+    border-top-left-radius: 0
+}
+
+#date-group{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

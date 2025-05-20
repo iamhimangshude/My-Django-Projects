@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+{{title}} Blog
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog_app/add_blog_post.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+<header>
+  <h1>{{ title }} Post</h1>
+  <button id="cancel-btn" onclick='btnFunction()'>Cancel</button>
+</header>
+<main>
+  <section id="form-section">
+    <form action="{{ request.get_full_path }}" id="formarea" method="POST" enctype='multipart/form-data'>
+      {% csrf_token %}
+      {% for items in form %}
+        <div class="form-controls" id="id_{{items.label|lower}}">
+          <label for="id_{{items.label|lower}}">{{items.label}}</label>
+          {{items}}
+          {{items.errors}}
+        </div>
+      {% endfor %}
+      <input type="submit" value="{{btnTitle}}">
+    </form>
+  </section>
+</main>
+<script>
+    function btnFunction() {
+        window.close('', '_parent', '');
+    }
+</script>
+{% endblock page_content %}

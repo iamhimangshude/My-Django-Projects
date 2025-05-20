@@ -1,0 +1,102 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background:  url("../../../static/images/black-crt-tv.jpg") no-repeat center center/cover;
+    overflow: hidden;
+    backdrop-filter: brightness(70%);
+    -webkit-backdrop-filter: brightness(70%);
+}
+
+#display-area{
+    display: flex;
+    justify-content: center;
+    width: inherit;
+}
+
+.container{
+    margin-top: 150px;
+    border-radius: 15px;
+    padding: 40px 90px;
+    background: linear-gradient(to top left, #0000005d, #3d3d3d59);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.form-wrap h1{
+    margin: 10px 0 15px 0;
+    color: #fff;
+}
+
+.form-wrap form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-wrap form input{
+    height: 26px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    outline: none;
+}
+
+.form-wrap form button{
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.form-wrap form button:active{
+    transform: scale(0.9);
+}
+
+.form-wrap form button:hover{
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+#error-message{
+    color: red;
+    font-weight: 550;
+    text-align: center;
+    padding: 5px;
+}
+
+#resend-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#resend-otp{
+    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resend-otp:active{
+    transform: scale(0.9);
+}
+
+#resend-otp:hover{
+    background: green;
+    font-weight: bold;
+    border-color: green;
+}

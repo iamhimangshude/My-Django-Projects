@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7cb8101bb4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static "blog_app/index.css" %}">
+    <title>The Blog Company</title>
+</head>
+
+<body>
+    <main>
+        <section id="header">
+            <div class="header-main">
+                <h2>Welcome to</h2>
+                <h1>The <span class="bg-black">Blog</span> Company</h1>
+                <div class="text-data">
+                    <p id="excerpt">Let we help you to express your thoughts and ideas. </p>
+                    <div class="btn-grp">
+                        <div class="btn" id="explore">
+                            <span class="material-symbols-outlined">explore</span>
+                            <a href="#what-is">Explore more</a>
+                        </div>
+                        <div class="btn" id="read-blog">
+                            <span class="material-symbols-outlined">local_library</span>
+                            <a href="{% url "all-blogs" %}">Read Our Blogs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-class" id="what-is">
+            <h1>What is a Blog?</h1>
+            <p class="info-text">A blog is a type of online journal or informational website that displays a collection
+                of
+                posts, articles, or entries.</p>
+            <div class="btn" id="read-blog">
+                <a href="#importance">Next</a>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+        </section>
+
+        <section class="blog-class" id="importance">
+            <h1>Why Blog is Important?</h1>
+            <p class="info-text">A blog is a great way to show off your expertise on a subject and establish your
+                authority. If you write a good blog in a tight niche, you will quickly become well known in that niche
+                and become a go-to authority on that subject.</p>
+            <div class="btn" id="read-blog">
+                <a href="#why-us">Next</a>
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+        </section>
+
+        <section class="blog-class" id="why-us">
+            <h1>Why Us?</h1>
+            <div class="why-us-items">
+                <div class="why-us--item">
+                    <div class="why-us--item-box">
+                        <span class="material-symbols-outlined">
+                            verified_user
+                        </span>
+                        <p class="why-us--item-box-label">Authenticity is our first priority</p>
+                    </div>
+                </div>
+                <div class="why-us--item">
+                    <div class="why-us--item-box">
+                        <span class="material-symbols-outlined">
+                            book
+                        </span>
+                        <p class="why-us--item-box-label">No limitations! Full reading Content! For free!</p>
+                    </div>
+                </div>
+                <div class="why-us--item">
+                    <div class="why-us--item-box">
+                        <span class="material-symbols-outlined">
+                            draw
+                        </span>
+                        <p class="why-us--item-box-label">Let your thoughts shape the community! And we help!</p>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url "all-blogs" %}" class="read-more">
+                <span class="material-symbols-outlined">
+                    local_library
+                </span>
+                Read More!
+            </a>
+        </section>
+    </main>
+    <footer id="page-footer">
+        <p>&copy; The Blog Company | All Rights Reserved 2024</p>
+        <div class="footer-box">
+            <a href="{% url "login" %}">Sign In</a>
+            <a href="{% url "register" %}">Join</a>
+        </div>
+        <div class="social-handles">
+            <p>Follow us on:</p>
+            <div class="social-box">
+                <a href="https://www.facebook.com/" target='_blank'><i class="fa-brands fa-facebook" id="facebook"></i></a>
+                <a href="https://www.x.com/" target='_blank'><i class="fa-brands fa-x-twitter" id="x"></i></a>
+                <a href="https://www.youtube.com/" target='_blank'><i class="fa-brands fa-youtube" id="youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}{{post.title}}{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog_app/blog_detail.css" %}">
+<link rel="stylesheet" href="{% static "blog_app/includes/header.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+{% include "blog_app/includes/header.html" with header_title="The <span class='bg-black'>Blog</span> Company" %}
+
+    <main id='content'>
+        <div class="m-top-100"></div>
+        <div class="post-heading">
+            <h1>{{post.title}}</h1>
+            <p id='excerpt'>{{post.excerpt}}</p>
+        </div>
+    
+        <section id="post-details">
+            <div class="post-image">
+                <img src="{{post.image.url}}" alt="">
+            </div>
+            <div class="post-content">
+                <p>
+                    {{post.content|linebreaksbr}}
+                </p>
+            </div>
+        </section>
+        <div class="space"></div>
+        <footer id="post-metadata">
+            <p>Updated At: <time>{{post.update_at}}</time></p>
+            <p id="author"><i>By <span class='bg-black'>{{ post.creator }}</span></i></p>
+        </footer>
+    </main>
+{% endblock page_content %}

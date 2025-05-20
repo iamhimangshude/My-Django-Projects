@@ -1,0 +1,15 @@
+<div class="post-item">
+    <div class="post-image">
+        <img src="{{item.image.url}}" alt="">
+    </div>
+    <div class="post-data">
+        <h2><a href="{% url "blog-detail" item.post_id %}">{{item.title}}</a></h2>
+        <p>{{item.excerpt}}</p>
+    </div>
+    {% if actionBtns %}
+    <div class="action-btns">
+        <a href="{% url "edit-blog" items.post_id %}" target='_blank'><span class="material-symbols-outlined" id='edit'>edit</span></a>
+        <a href="{% url "delete-blog" items.post_id %}"><span class="material-symbols-outlined" id='delete'>delete</span></a>
+    </div>
+    {% endif %}
+</div>

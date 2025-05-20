@@ -1,0 +1,53 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    background: url('../../../static/images/blog-account.jpg') no-repeat center center/cover;
+}
+
+.m-top-90{
+    margin-top: 90px;
+}
+
+#blog-lists{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    border: 1px solid transparent;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+    scrollbar-width: thin;
+}
+
+.container #info-box{
+    display: flex;
+    flex-direction: column;
+    background: #ffffffac;
+    padding: 15px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.container #info-title{
+    margin-bottom: 5px;
+    font-size: 44px;
+}
+
+.container #info-text{
+    font-size: 26px;
+}

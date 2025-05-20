@@ -1,0 +1,276 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+section {
+    position: relative;
+    width: 100vw;
+    height: 95vh;
+    background: url("../../../static/images/blue-surface-with-study-tools.jpg") no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    background: #00000091;
+}
+
+.bg-black {
+    background-color: black;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+.header-main {
+    color: #fff;
+    padding: 5px;
+    z-index: 2;
+}
+
+.header-main h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.header-main h1 {
+    font-size: 46px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.text-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-data p {
+    align-self: center;
+}
+
+.btn-grp {
+    display: flex;
+}
+
+.btn {
+    padding: 5px 10px;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: green;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.btn:hover {
+    background: #016e01;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+}
+
+#excerpt {
+    margin: 5px 0;
+}
+
+#read-blog {
+    margin-left: 10px;
+}
+
+.blog-class {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-class *{
+    z-index: 2;
+}
+
+.blog-class h1 {
+    font-size: 40px;
+}
+
+.info-text {
+    text-align: center;
+    font-size: 30px;
+    width: 60%;
+}
+
+#what-is {
+    background: url("../../../static/images/workspace.jpg") no-repeat center center/cover;
+}
+
+#importance {
+    background: url("../../../static/images/organised-arrangement-desk-elements-with-copy-space.jpg") no-repeat center center/cover;
+    backdrop-filter: brightness(60%);
+    -webkit-backdrop-filter: brightness(60%);
+}
+
+#info-box {
+    width: 700px;
+}
+
+#info-box ol {
+    font-size: 18px !important;
+}
+
+#info-box ol li {
+    margin: 12px;
+}
+
+#why-us {
+    background: url("../../../static/images/trianglify-tune.png") no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#why-us h1{
+    font-size: 50px;
+}
+
+.why-us-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80vw;
+}
+
+.why-us--item-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.why-us--item-box span{
+    font-size: 100px;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background-color: #058f05;
+}
+
+.why-us--item-box-label{
+    font-size: 25px;
+    text-align: center;
+    width: 300px;
+}
+
+.read-more{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid transparent;
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: #058f05;
+    text-decoration: none;
+    color: white;
+}
+
+#page-footer {
+    color: white;
+    background: #2a282b;
+    padding: 10px;
+}
+
+#page-footer p {
+    margin-top: 0;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.footer-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    width: 100%;
+}
+
+.footer-box a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-box a:hover {
+    text-decoration: underline;
+}
+
+.social-handles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.social-box a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    /* padding: ; */
+}
+
+#facebook,
+#x,
+#youtube {
+    padding: 3px;
+}
+
+.social-box #facebook:hover {
+    color: #4267B2;
+    background: white;
+    border-radius: 50%;
+    text-align: center;
+    padding: 3px;
+}
+
+.social-box #x:hover {
+    color: #E1E8ED;
+    padding: 3px;
+    background: #14171A;
+    border-radius: 5px;
+}
+
+.social-box #youtube:hover {
+    color: red;
+    background-color: white;
+    border-radius: 50%;
+    padding: 3px;
+}

@@ -1,0 +1,7 @@
+/* Scrollbar */
+
+*{
+    scrollbar-width: thin;
+    scrollbar-color: grey transparent;
+    font-family: 'Montserrat', sans-serif;
+}

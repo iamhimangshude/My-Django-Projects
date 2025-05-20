@@ -1,0 +1,79 @@
+.post-item{
+    background: #ffffffab;
+    margin: 10px;
+    display: flex;
+    border-radius: 10px;
+    width: 60%;
+    transition: 0.3s ease;
+}
+
+.post-item:hover{
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+
+.post-item .post-image{
+    height: 144px;
+    width: 220px;
+    margin: 10px;
+}
+
+.post-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.post-data{
+    margin: 10px;
+}
+
+.post-data p{
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+.post-data h2 a{
+    text-decoration: none;
+    color: #1d3557;
+}
+
+.post-data h2 a:hover{
+    text-decoration: underline;
+    color: #1d3557;
+}
+
+.action-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+}
+
+.post-item:hover .action-btns{
+    opacity: 1;
+}
+
+.action-btns #edit{
+    padding: 5px;
+    color: #1d3557;
+    border: 1px solid transparent;
+}
+
+.action-btns #edit:hover{
+    border-color: #1d3557;
+    border-radius: 10px;
+
+}
+
+.action-btns #delete{
+    color: red;
+    padding: 5px;
+    border: 1px solid transparent;
+}
+
+.action-btns #delete:hover{
+    border-color: red;
+    border-radius: 10px;
+}

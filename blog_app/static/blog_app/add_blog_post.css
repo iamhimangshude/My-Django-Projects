@@ -1,0 +1,149 @@
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../../../static/images/two-pink-ballpoint-pens.jpg") no-repeat center center/cover;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: brightness(90%);
+  overflow: hidden;
+}
+
+/* Header */
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+}
+
+header #cancel-btn{
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 10px;
+  font-family: inherit;
+  font-size: larger;
+}
+
+header #cancel-btn:hover{
+  backdrop-filter: blur(5px);
+  background: #9797972c;
+}
+
+/* Form */
+form#formarea{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-controls{
+  padding: 5px;
+}
+
+.form-controls label{
+  display: none;
+}
+
+/* Arranging all the fields by custom order */
+.form-controls#id_title{
+  order: 1;
+}
+
+.form-controls#id_excerpt{
+  order: 2;
+}
+
+.form-controls#id_image{
+  order: 3;
+}
+
+.form-controls#id_content{
+  order: 4;
+}
+
+
+.form-controls input[type='text']{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-family: inherit;
+  background: transparent;
+  width: 50%;
+  padding: 5px;
+}
+
+.form-controls input[type='text']:focus{
+  border-bottom: 1px solid #000;
+  backdrop-filter: blur(5px);
+}
+
+.form-controls input[id='id_title']{
+  font-size: larger;
+}
+
+.form-controls label[for='id_image']{
+  display: inline-block;
+}
+
+/* Textarea styling */
+.form-controls textarea{
+  height: 390px;
+  width: 99vw;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  resize: none;
+  transition: 0.9s ease-in-out;
+}
+
+.form-controls textarea:focus{
+  background: #05050523;
+  backdrop-filter: blur(5px);
+  transition: 0.9s ease-in-out;
+}
+
+#formarea input[type='submit']{
+  align-self: self-end;
+  position: sticky;
+  bottom: 60px;
+  right: 40px;
+  z-index: 10;
+  order: 5;
+  padding: 7px;
+  font-family: inherit;
+  font-size: x-large;
+  background: white;
+  border: 1px solid;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px #00000065;
+  cursor: pointer;
+}
+
+#formarea input[type='submit']:hover{
+  background: linear-gradient(to left top, #ffbfc3, #ffcd80);
+  border: 1px solid transparent;
+}
+
+/* Errorlists */
+.form-controls ul.errorlist {
+  list-style: none;
+  display: block;
+}
+
+.form-controls ul.errorlist li {
+  align-self: flex-start;
+  justify-self: flex-start;
+}

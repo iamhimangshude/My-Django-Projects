@@ -1,0 +1,89 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: url("../../../static/images/black-crt-tv.jpg") no-repeat center center/cover;
+    backdrop-filter: brightness(70%);
+    -webkit-backdrop-filter: brightness(70%);
+}
+
+#display-area{
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    margin-top: 100px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 20px;
+    background: linear-gradient(to top left, #ffffffda, #cccccc4d);
+    backdrop-filter: blur(3px);
+}
+
+.header-msg h1{
+    margin: 4px 0 0 0;
+    text-align: center;
+}
+
+.header-msg p{
+    text-align: center;
+    font-size: 14px;
+    margin: 5px 0 35px 0;
+}
+
+.form-wrap form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-wrap form input{
+    text-align: center;
+    height: 26px;
+    padding: 3px;
+    font-family: inherit;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #888;
+    font-weight: 600;
+    background: transparent;
+}
+
+.form-wrap form input:focus{
+    border-color: #000;
+}
+
+.form-wrap form button{
+    align-self: center;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background: transparent;
+}
+
+.form-wrap form button:active{
+    transform: scale(0.9);
+}
+
+.form-wrap form button:hover{
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+}
+
+#message{
+    padding: 3px;
+    text-align: center;
+    color: #f33535;
+    margin: 5px;
+    font-weight: 500;
+}

@@ -1,0 +1,39 @@
+<header>
+    <h1><a href="{% url "index" %}">{{header_title}}</a></h1>
+    <div class="header-group">
+        {% if not request.user.is_authenticated %}
+            <a href="{% url 'login' %}" id="login">Sign In</a>
+        {% else %}
+            <p>Hello!</p>
+            <details>
+                <summary id='account' class='bg-black'>
+                    {% if request.user.first_name == '' %}
+                    {{request.user.email}}
+                    {% else %}
+                    {{request.user}}
+                    {% endif %}
+                </summary>
+
+                <div class="floating-menu">
+                    <ul>
+                        <li><a href="{% url "add-blog" %}" id='add-post' target="_blank"> <span class="material-symbols-outlined">
+                            add
+                            </span><span>Add Post</span></a></li>
+                        <li><a href="{% url "user-blogs" %}" id='add-post'> <span class="material-symbols-outlined">
+                            notes
+                            </span><span>Your Posts</span></a></li>
+                        <li><a href="{% url "account" %}"><span class="material-symbols-outlined">
+                            person
+                            </span> <span>Your Account</span></a></li>
+                        <li><a href="{% url "logout" %}" id='logout'><span class="material-symbols-outlined">
+                            logout
+                            </span><span>Check Out</span></a></li>
+                    </ul>
+                </div>
+            </details>
+        {% endif %}
+        {% if request.session.off_home %}
+            <a href="{% url "all-blogs" %}" id='back'>Home</a>
+        {% endif %}
+    </div>
+</header>

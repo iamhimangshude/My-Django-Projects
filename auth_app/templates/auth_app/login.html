@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+Check-In | The Blog Company
+{% endblock page_title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "auth_app/login.css" %}">
+{% endblock css_files %}
+
+{% block page_content %}
+
+<div class="bg-img">
+    <img src="{% static "images/turned-on-bokeh-light.jpg" %}" alt="">
+</div>
+<div class="container">
+    <div class="header">
+        <h1>The <span class="bg-black">Blog</span> Company</h1>
+        <p>Express your views and thoughts. Make your place among millions!</p>
+    </div>
+    <hr>
+    <div class="form-wrap">
+        <h1>Check-In</h1>
+        <form action="{{request.get_full_path}}" method="POST">
+            {% csrf_token %}
+            {% for items in form %}
+                <div class="form-controls">
+                    {{items}}
+                    {{items.errors}}
+                </div>
+            {% endfor %}
+            <div class="form-controls">
+                <p id='error'>{{error}}</p>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <a href="{% url "forgot-password" %}" id='forgot-password'>Forgot Password?</a>
+        <section>
+            <div id='register-section'>
+                <p>Are you new here? <span>Please <a href="{% url 'register' %}">Register</a> here for a start!</span> </p>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock page_content %}
