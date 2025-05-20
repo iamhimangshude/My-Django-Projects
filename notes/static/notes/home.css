@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fefae0;
+}
+
+.overlay-loading-screen{
+    float:left;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    display: grid;
+    place-items: left;
+    overflow: hidden;
+    animation: hide-loading-screen 5s forwards;
+}
+
+@keyframes hide-loading-screen{
+    from{
+        visibility: visible;
+    }
+    to{
+        visibility: hidden;
+    }
+}
+
+.overlay-loading-screen span{
+    display: block;
+    width: 0%;
+    height: 100%;
+    animation: moving 3s forwards;
+    background-color: #3939dd;
+}
+
+
+@keyframes moving{
+    0%{
+        width: 0%;
+    }
+    25%{
+        width: 30%;
+    }
+    50%{
+        width: 35%;
+    }
+    75%{
+        width: 70%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+header nav{
+    background: linear-gradient(to right, #d38c46, #d69d71);
+    color: black;
+    display: flex;
+    padding: 0 20px;
+    font-family: 'Protest Riot', cursive;
+    font-weight: 100;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 10px 15px #b8b5b5;
+}
+
+header nav a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.add-note{
+    float: right;
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    cursor: pointer;
+    background-color: #e76f51;
+    color: white;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    box-shadow: 0px 5px 15px #5e5d5d;
+}
+.add-note a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.add-note a span{
+    margin: auto;
+    padding: 5px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.add-note:hover{
+    background-color: #df5330;
+    color: black;
+}
+
+.notes{
+    margin: 30px 20px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@keyframes zoom-in{
+    from{
+        transform: scale(0.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+
+.note-card{
+    background-color: #e9edc9;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.note-card:nth-child(odd){
+    width: 200px;
+    animation: forwards zoom-in 5s;
+}
+
+.note-card:nth-child(even){
+    width: 150px;
+    animation: forwards zoom-in 7s;
+}
+
+.note-card:nth-child(3n){
+    width: 360px;
+}
+
+.note-card a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.note-card p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-card:hover,
+.note-card a:hover{
+    background-color: #ccd5ae;
+    box-shadow: 0 10px 10px #adabab;
+    transition: 0.5s ease-in-out;
+    transform: scale(1.05);
+}

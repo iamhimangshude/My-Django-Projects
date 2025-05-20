@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'notes/home.css' %}">
+    <title>Your Notes</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2><a href="{% url "home" %}">Your Notes</a></h2>
+        </nav>
+    </header>
+    <div class="overlay-loading-screen">
+        <span></span>
+    </div>
+
+    <div class="add-note">
+        <a href="{% url "add-note" %}">
+            <span class="material-symbols-outlined">
+                add 
+            </span>
+        </a>
+    </div>
+    <div class="notes">
+        {% for note in all_notes %}
+            <div class="note-card"><a href="{% url "edit-note" note.id %}">
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.content }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

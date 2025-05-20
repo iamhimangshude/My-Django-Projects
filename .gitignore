@@ -160,15 +160,6 @@ cython_debug/
 #.idea/
 
 
-# For Visual Studio Code
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
-!.vscode/extensions.json
-!.vscode/launch.json
-!.vscode/tasks.json
-.history
-
-
-# Temp file
-temp/
-*.tmp

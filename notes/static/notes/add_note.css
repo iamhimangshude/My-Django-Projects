@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3ecbf;
+}
+
+nav header{
+    background: linear-gradient(to right, #d38c46, #d69d71);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-family: 'Protest Riot', cursive;
+    font-weight: 100;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 15px #b8b5b5;
+    height: 50px;
+    width: 100%;
+}
+
+nav header a{
+    text-decoration: none;
+    color: #2e2d2d;
+}
+
+nav header input{
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    height: 40px;
+    width: 95%;
+    background: transparent;
+    font-size: 30px;
+    font-family: 'Protest Riot', cursive;
+}
+
+nav header button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+
+textarea{
+    border: none;
+    outline: none;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 98%;
+    height: 100%;
+    background: transparent;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}

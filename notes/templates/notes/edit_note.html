@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static "notes/add_note.css" %}">
+    <title>{{ note.title}} | Update</title>
+</head>
+<body>
+    <form action="{% url "edit-note" note.id %}" method="post">
+        {% csrf_token %}
+        <nav>
+            <header>
+                <a href="{% url 'home' %}">
+                    <span class="material-symbols-outlined">
+                    close
+                    </span>
+                </a>
+                <input type="text" name="title" id="title" value="{{ note.title }}">
+                <button type="submit"><span class="material-symbols-outlined">done</span></button>
+                <a href="{% url 'delete-note' note.id %}"><span class="material-symbols-outlined">delete</span></a>
+            </header>
+        </nav>
+
+        <textarea name="content" id="content" cols="100" rows="30">{{ note.content }}</textarea>
+
+    </form>
+</body>
+</html>
